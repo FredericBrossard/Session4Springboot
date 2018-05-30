@@ -19,7 +19,7 @@ public interface FooRepository extends JpaRepository<Foo, Long> {
 
 	public List<Foo> findByNameLike(@Param("name") String name);
 
-	List<Foo> delete(Long id);
+	//List<Foo> delete(Long id);
 	
 	/*void save();
 

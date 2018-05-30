@@ -101,9 +101,21 @@ class FooController {
 		 System.out.println(resp.getName());
 		return resp.getId();
 	}
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	
+	/* CODE JavaScript à lancer depuis la console HTML
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("DELETE", "/foos/");
+	xmlhttp.setRequestHeader("Content-Type", "application/json");
+	xmlhttp.send(JSON.stringify({id:5}));
+
+	xmlhttp.response
+	*/
+	//Le resultat de cette affaire la dessous, c'est qu il y a delete du nom mais pas de la ligne d'id 5
+	//@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(method = RequestMethod.DELETE)
 	@ResponseBody
-	public void deleteFoo(@PathVariable(value= "id") Long id) {
+	//public void deleteFoo(@PathVariable(value= "id") Long id) {
+	public void deleteFoo(@RequestBody Long id) {
 		System.out.println("Entrée dans méthode delete avec id = " + id);
 		fooService.delete(id);
 	}
